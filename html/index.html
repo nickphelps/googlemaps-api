@@ -13,10 +13,13 @@
     </style>
 </head>
 
+
 <body>
     <h3>My Google Maps Demo</h3>
     <!--The div element for the map -->
     <div id="map"></div>
+
+    <button onclick='showMarkers()'>See markers</button>
     <script>
         // Initialize and add the map
         function initMap() {
@@ -24,11 +27,14 @@
             var uluru = { lat: -25.344, lng: 131.036 };
             var perth = {}
             let labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            
 
-            // The map, centered at Uluru
+
+            // The map, centered at Uluru   
             var map = new google.maps.Map(
                 document.getElementById('map'), { zoom: 4, center: uluru });
-            // The marker, positioned at Uluru
+
+
             var marker = cities.map(function (cities, i) {
                 return new google.maps.Marker({
                     position: cities,
@@ -43,6 +49,42 @@
 
 
 }//init
+
+function showMarkers (){
+    if(cities === null){
+        cities = [ {
+        lat: -31.9505, 
+        lng: 115.8605
+    },
+    {
+        lat: -27.4698, 
+        lng: 153.0251
+    },
+    {
+        lat: -12.4634, 
+        lng: 130.8456
+    },
+    {
+        lat: -34.9285, 
+        lng: 138.6007
+    },
+    {
+        lat: -37.8136, 
+        lng: 144.9631
+    },
+    {
+        lat: -33.8688, 
+        lng: 151.2093
+    }
+
+]
+console.info(cities)
+    }else{
+        cities = null
+        console.info(cities)
+    }
+    initMap()
+}
     </script>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
