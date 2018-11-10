@@ -19,33 +19,26 @@ function initMap() {
   // The location of Uluru
   var uluru = {lat: -25.344, lng: 131.036};
   var perth = {}
+  let labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 let cities = 
     {
         // city: 'perth',
         lat: 31.9505, 
         lng: 115.86
     }
-//     ,
-//     {   
-//         // city: 'sydney',
-//         lat: 33.86,
-//         lng: 151.20
-//     }
-// ]//cities
 
   // The map, centered at Uluru
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 4, center: uluru});
   // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-  let markerCities = new google.maps.Marker({position: cities, map: map});
-
-
+  var marker = location.map(function(location, i){
+      return google.maps.Marker({
+          position: location,
+          label: labels[i % labels.length]
+      })
+  })//marker
 
 }//cities
-
-    
-
     </script>
     <!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
