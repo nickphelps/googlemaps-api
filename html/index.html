@@ -11,6 +11,7 @@
             /* The width is the width of the web page */
         }
     </style>
+    <script src="../scripts/data.js"></script>
 </head>
 
 
@@ -20,6 +21,7 @@
     <div id="map"></div>
 
     <button onclick='showMarkers()'>See markers</button>
+    
     <script>
         // Initialize and add the map
         function initMap() {
@@ -35,7 +37,7 @@
                 document.getElementById('map'), { zoom: 4, center: uluru });
 
 
-            var marker = cities.map(function (cities, i) {
+            var marker = displayLoc.map(function (cities, i) {
                 return new google.maps.Marker({
                     position: cities,
                     map: map,
@@ -49,39 +51,17 @@
 
 
 }//init
-
+function setMarker (displayLoc){
+    
+}
+let displayLoc = cities
 function showMarkers (){
-    if(cities === null){
-        cities = [ {
-        lat: -31.9505, 
-        lng: 115.8605
-    },
-    {
-        lat: -27.4698, 
-        lng: 153.0251
-    },
-    {
-        lat: -12.4634, 
-        lng: 130.8456
-    },
-    {
-        lat: -34.9285, 
-        lng: 138.6007
-    },
-    {
-        lat: -37.8136, 
-        lng: 144.9631
-    },
-    {
-        lat: -33.8688, 
-        lng: 151.2093
-    }
-
-]
-console.info(cities)
+    if(displayLoc=== null){
+        displayLoc = cities
+        console.info(displayLoc)
     }else{
-        cities = null
-        console.info(cities)
+        displayLoc = null
+        console.info(displayLoc)
     }
     initMap()
 }
@@ -93,9 +73,7 @@ console.info(cities)
     -->
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzJ136ubTcgM4irmUTvfY9fKP9scX9QJ4&callback=initMap"></script>
-    <script src="../scripts/data.js">
-
-    </script>
+    
 </body>
 
 </html>

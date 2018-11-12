@@ -1,4 +1,4 @@
-let cities = [ {
+const cities = [ {
         lat: -31.9505, 
         lng: 115.8605
     },
